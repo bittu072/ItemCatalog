@@ -19,7 +19,7 @@ h2 {
 
 h3 {
 	font-size: 18px;
-	color: #2a6496;
+	color: #000;
 	line-height: 23px;
 }
  p {
@@ -168,9 +168,13 @@ u }
 }
 
 .yelpcustom {
-color: #db1608;
+color: #F00E0E;
 }
 
 .nomargin {
 	margin: 0;
+}
+
+.star-color {
+	color: #F00E0E;
 }

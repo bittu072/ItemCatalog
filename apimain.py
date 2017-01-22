@@ -55,7 +55,7 @@ class SearchQuery():
         params = {}
         params["term"] = search_term
         params["location"] = location
-        params["radius_filter"] = "15"
+        params["radius_filter"] = "1000"
         params["limit"] = "10"
         params["sort"] = "1"
         return params
