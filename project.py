@@ -17,6 +17,7 @@ from sqlalchemy.orm import sessionmaker
 from database_setup import Base, Restaurant, MenuItem, User
 
 import apimain
+from jinja2.ext import do
 
 CLIENT_ID = json.loads(
     open('client_secrets.json','r').read())['web']['client_id']
@@ -298,16 +299,16 @@ def showRestaurants():
 
 @app.route('/yelprestaurant/', methods=['GET', 'POST'])
 def yelpRestaurant():
-    if 'username' not in login_session:
-        return render_template('yelpresults.html')
-    else:
-        return render_template('restaurants.html')
     if request.method == 'POST':
         queryInstance = apimain.SearchQuery()
         location = request.form['location']
-        searchItem = request.form['searhitem']
+        searchItem = request.form['searchitem']
         results = queryInstance.main(location, searchItem)
-        
+        return render_template('yelpresults.html', results=results, location=location)
+    else:
+        return render_template('yelpsearch.html')
+
+
 
 
 
